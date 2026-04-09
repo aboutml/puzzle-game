@@ -32,12 +32,13 @@ describe('Puzzle', function() {
 
     describe('#isSolved', function () {
         it('should return true when puzzle is solved', function() {
-            const puzzle = new Puzzle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 4, 4);
+            const puzzle = new Puzzle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0], 4, 4);
+            expect(puzzle.tiles).to.have.lengthOf(16);
             expect(puzzle.isSolved()).equals(true);
         });
 
         it('should return false when puzzle is not solved', function() {
-            const puzzle = new Puzzle([15, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1], 4, 4);
+            const puzzle = new Puzzle([2, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0], 4, 4);
             expect(puzzle.isSolved()).equals(false);
         });
     });
