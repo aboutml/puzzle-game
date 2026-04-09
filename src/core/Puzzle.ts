@@ -11,12 +11,12 @@ export class Puzzle {
 
     public constructor(tiles: number[], height: number, width: number) {
         this.tiles.push(...tiles);
-        this.height = this.height ?? height;
-        this.width =  this.width ?? width;
+        this.height = height;
+        this.width = width;
     }
 
     public to2D(): number[][] {
-        const matrixRepresentation = [];
+        const matrixRepresentation: number[][] = [];
 
         for (let j = 0; j < this.height; j++) {
             matrixRepresentation.push(this.tiles.slice(j * this.width, (j + 1) * this.width));
@@ -39,12 +39,12 @@ export class Puzzle {
         return range(1, this.tiles.length).every((n, i) => this.tiles[i] === n);
     }
 
-    public tap(x: number, y: number): TapData | null {
+    public tap(x: number, y: number): TapData {
         if (!Number.isInteger(x) || x < 0 || this.width <= x) throw new Error('X is out of range');
         if (!Number.isInteger(y) || y < 0 || this.height <= y) throw new Error('Y is out of range');
 
         const tappedTileIndex = x + y * this.width;
-        const movedTile: MovedTile = this.getMovedTile(x, y, tappedTileIndex);
+        const movedTile = this.getMovedTile(x, y, tappedTileIndex);
 
         return {
             x,
@@ -64,7 +64,7 @@ export class Puzzle {
 
         if (isSameX && (emptyTileY === y)) return null;
 
-        let movedTile: MovedTile = null;
+        let movedTile: MovedTile | null = null;
 
         if (Puzzle.isNeighbour(x, emptyTileX, y, emptyTileY)) {
             movedTile = {index: tappedTileIndex, id: this.tiles[tappedTileIndex]};
