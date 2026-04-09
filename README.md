@@ -8,6 +8,8 @@
 
 As an input params it's expected to get indexes of tile that user attempts to move.
 
+**Initial board:** Each new game picks uniformly at random among several **verified solvable** layouts stored in `src/core/config.json` (see `RandomPuzzleGenerator`). That keeps startup fast and avoids rejecting invalid random permutations.
+
 **Game sample:**
 
 ![Sample](./assets/game_sample.png)
