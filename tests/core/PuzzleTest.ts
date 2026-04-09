@@ -36,7 +36,7 @@ describe('Puzzle', function() {
             expect(puzzle.isSolved()).equals(true);
         });
 
-        it('should return true when puzzle is not solved', function() {
+        it('should return false when puzzle is not solved', function() {
             const puzzle = new Puzzle([15, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1], 4, 4);
             expect(puzzle.isSolved()).equals(false);
         });
@@ -74,7 +74,7 @@ describe('Puzzle', function() {
             expect(meta).has.property('y', 3);
             expect(meta).has.property('index', 12);
             expect(meta).has.property('piece', 0);
-            expect(meta.movedTile).is.null;
+            expect(meta?.movedTile).is.null;
         })
 
         it('should move puzzle when x = 0, y = 2', function() {
@@ -86,9 +86,9 @@ describe('Puzzle', function() {
             expect(meta).has.property('y', 2);
             expect(meta).has.property('index', 8);
             expect(meta).has.property('piece', 0);
-            expect(meta.movedTile).is.not.undefined;
-            expect(meta.movedTile).has.property('index', 8);
-            expect(meta.movedTile).has.property('id', 9);
+            expect(meta?.movedTile).is.not.undefined;
+            expect(meta?.movedTile).has.property('index', 8);
+            expect(meta?.movedTile).has.property('id', 9);
         });
 
         it('should move puzzle when x = 1, y = 3', function() {
@@ -100,9 +100,9 @@ describe('Puzzle', function() {
             expect(meta).has.property('y', 3);
             expect(meta).has.property('index', 13);
             expect(meta).has.property('piece', 0);
-            expect(meta.movedTile).is.not.undefined;
-            expect(meta.movedTile).has.property('index', 13);
-            expect(meta.movedTile).has.property('id', 13);
+            expect(meta?.movedTile).is.not.undefined;
+            expect(meta?.movedTile).has.property('index', 13);
+            expect(meta?.movedTile).has.property('id', 13);
         });
 
         it('should not move puzzle when tap is no near empty tile', function() {
@@ -114,7 +114,7 @@ describe('Puzzle', function() {
             expect(meta).has.property('y', 0);
             expect(meta).has.property('index', 0);
             expect(meta).has.property('piece', 1);
-            expect(meta.movedTile).is.null;
+            expect(meta?.movedTile).is.null;
         });
     });
 });
