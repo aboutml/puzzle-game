@@ -1,0 +1,40 @@
+{
+  "name": "puzzle",
+  "version": "1.0.0",
+  "description": "15 puzzle",
+  "main": "index.js",
+  "scripts": {
+    "start:game": "ts-node src/client/gameRunner.ts",
+    "test": "mocha --require ts-node/register 'tests/**/*Test.ts'"
+  },
+  "keywords": [
+    "interview-question",
+    "puzzle"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.3.5",
+    "@types/inquirer": "^9.0.3",
+    "@types/lodash": "^4.14.195",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^20.4.4",
+    "chai": "^4.3.7",
+    "mocha": "^11.7.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "inquirer": "^8.2.5",
+    "lodash": "^4.17.21"
+  },
+  "overrides": {
+    "serialize-javascript": "7.0.5",
+    "diff": "8.0.4"
+  },
+  "ts-standard": {
+    "ignore": [
+      "test/**/*Test.ts"
+    ]
+  }
+}
