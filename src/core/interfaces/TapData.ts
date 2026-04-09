@@ -5,5 +5,5 @@ export interface TapData {
     y: number
     index: number
     piece: number
-    movedTile: MovedTile
+    movedTile: MovedTile | null
 }
